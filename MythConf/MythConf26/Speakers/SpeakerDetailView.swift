@@ -53,7 +53,7 @@ struct SpeakerDetailView: View {
                         NavigationLink(value: TalkReference(talkID: item.talkID, session: item.session)) {
                             TalkSummaryView(talkID: item.talkID, session: item.session)
                         }
-                        .accessibilityHint("Double-tap to view session details")
+                        .accessibilityHint("Shows session details")
                         .buttonStyle(.plain)
                     }
                 }

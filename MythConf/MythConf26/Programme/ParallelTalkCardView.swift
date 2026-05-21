@@ -44,7 +44,7 @@ struct ParallelTalkCardView: View {
         }
         .accessibilityElement(children: .combine)
         .accessibilityLabel("\(session.startTimeText) to \(session.endTimeText): \(viewModel.talkTitleFrom(talkID: talkID)) by \(viewModel.speakersFrom(talkID: talkID)) at \(viewModel.locationNameFrom(talkID: talkID))")
-        .accessibilityHint("Double-tap to view more details")
+        .accessibilityHint("Shows more details")
         .accessibilityAction(named: viewModel.isFavourite(talk: viewModel.talkFrom(talkID: talkID)) ? "Remove from favourites" : "Add to favourites") {
             let talk = viewModel.talkFrom(talkID: talkID)
             if viewModel.isFavourite(talk: talk) {

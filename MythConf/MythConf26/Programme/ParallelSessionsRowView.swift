@@ -12,6 +12,7 @@ struct ParallelSessionsRowView: View {
     var body: some View {
         HStack(alignment: .top) {
             TimeColumnView(startTime: session.startTimeText, endTime: session.endTimeText)
+                .accessibilityHidden(true)
 
             HStack(alignment: .top) {
                 ForEach(session.contentIDs, id: \.self) { talkID in

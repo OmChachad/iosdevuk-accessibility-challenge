@@ -19,8 +19,11 @@ struct LocationsView: View {
                             .font(.subheadline)
                             .foregroundStyle(.secondary)
                             .lineLimit(2)
+                            .accessibilityLabel(location.placeDescription.components(separatedBy: CharacterSet(charactersIn: ",.").union(.newlines)).first!)
                     }
+                    .accessibilityElement(children: .combine)
                 }
+                .accessibilityHint("Shows location details.")
             }
             .navigationTitle("Locations")
             .conferenceNavigationDestinations()

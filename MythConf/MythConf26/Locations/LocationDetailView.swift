@@ -30,6 +30,14 @@ struct LocationDetailView: View {
                 }
                 .frame(height: 400)
                 .clipShape(.rect(cornerRadius: 12))
+                .accessibilityRepresentation {
+                    Button("Open in Maps", systemImage: "map") {
+                            let item = MKMapItem(placemark: MKPlacemark(coordinate: coordinate))
+                            item.name = location.name
+                            item.openInMaps()
+                        }
+                        .accessibilityHint("Opens this location in Apple Maps")
+                }
                 .padding(.horizontal)
 
                 Text(location.placeDescription)

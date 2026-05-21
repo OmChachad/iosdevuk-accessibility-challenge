@@ -17,13 +17,15 @@ struct SpeakerDetailView: View {
                 // Header
                 HStack(alignment: .top) {
                     SpeakerPhotoView(speaker: speaker, size: 80)
+                        .accessibilityHidden(true)
 
                     VStack(alignment: .leading) {
                         Text(speaker.name)
                             .font(.title2)
                             .bold()
+                            .accessibilityAddTraits(.isHeader)
                         if !speaker.social.isEmpty {
-                            SocialLinksView(social: speaker.social)
+                            SocialLinksView(social: speaker.social, speakerName: speaker.name)
                         }
                     }
 
@@ -45,11 +47,13 @@ struct SpeakerDetailView: View {
                 if !speakerTalks.isEmpty {
                     Text("Sessions")
                         .font(.headline)
+                        .accessibilityAddTraits(.isHeader)
 
                     ForEach(speakerTalks, id: \.talkID) { item in
                         NavigationLink(value: TalkReference(talkID: item.talkID, session: item.session)) {
                             TalkSummaryView(talkID: item.talkID, session: item.session)
                         }
+                        .accessibilityHint("Double-tap to view session details")
                         .buttonStyle(.plain)
                     }
                 }

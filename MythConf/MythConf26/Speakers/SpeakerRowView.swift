@@ -24,8 +24,10 @@ struct SpeakerRowView: View {
                         .font(.subheadline)
                         .foregroundStyle(.secondary)
                         .lineLimit(2)
+                        .accessibilityLabel(speaker.speakerInfo.components(separatedBy: CharacterSet(charactersIn: ",.").union(.newlines)).first!)
                 }
             }
         }
+        .accessibilityElement(children: .combine)
     }
 }

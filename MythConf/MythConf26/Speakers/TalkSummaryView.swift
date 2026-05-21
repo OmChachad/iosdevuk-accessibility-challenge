@@ -22,6 +22,8 @@ struct TalkSummaryView: View {
             .font(.caption)
             .foregroundStyle(.secondary)
         }
+        .accessibilityElement(children: .combine)
+        .accessibilityLabel("\(session.startTimeText) to \(session.endTimeText) on \(session.dayAndDate): \(viewModel.talkTitleFrom(talkID: talkID)) at \(viewModel.locationNameFrom(talkID: talkID))")
         .padding(.vertical, 4)
     }
 }
